@@ -4,7 +4,8 @@ const Endereco = mongoose.model('Endereco');
 module.exports = {
 
     async index(req, res) {
-        const enderecos = await Endereco.find();
+        const { page = 1} = req.query;
+        const enderecos = await Endereco.paginate({}, {page, limit:10});
         return res.json(enderecos);
     },
 

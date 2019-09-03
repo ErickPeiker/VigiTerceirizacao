@@ -1,5 +1,6 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
+let Schema = mongoose.Schema;
 
 const EnderecoSchema = new mongoose.Schema({
     rua : {
@@ -24,4 +25,5 @@ const EnderecoSchema = new mongoose.Schema({
     }
 });
 
+EnderecoSchema.plugin(mongoosePaginate);
 mongoose.model('Endereco', EnderecoSchema );
